@@ -1,0 +1,288 @@
+/* Twitter Reply Bot Modal Styles */
+
+.replybot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.replybot-modal-content {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.replybot-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.replybot-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #14171a;
+}
+
+.replybot-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #657786;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.replybot-close-btn:hover {
+  background-color: #f7f9fa;
+  color: #14171a;
+}
+
+.replybot-modal-body {
+  padding: 16px 24px 24px;
+}
+
+.replybot-tweet-preview {
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: #f7f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #1da1f2;
+}
+
+.replybot-tweet-preview strong {
+  color: #14171a;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.replybot-tweet-text {
+  margin: 0;
+  color: #14171a;
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+.replybot-insights-section {
+  margin-bottom: 24px;
+}
+
+.replybot-insights-section label {
+  display: block;
+  font-weight: 700;
+  color: #14171a;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+#replybot-insights {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+#replybot-insights:focus {
+  outline: none;
+  border-color: #1da1f2;
+  box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.1);
+}
+
+#replybot-insights::placeholder {
+  color: #657786;
+}
+
+.replybot-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.replybot-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+}
+
+.replybot-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.replybot-btn-secondary {
+  background-color: white;
+  color: #14171a;
+  border: 1px solid #e1e8ed;
+}
+
+.replybot-btn-secondary:hover:not(:disabled) {
+  background-color: #f7f9fa;
+}
+
+.replybot-btn-primary {
+  background-color: #1da1f2;
+  color: white;
+}
+
+.replybot-btn-primary:hover:not(:disabled) {
+  background-color: #1a91da;
+}
+
+.replybot-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  background-color: #f7f9fa;
+  border-radius: 8px;
+  color: #657786;
+  font-size: 14px;
+}
+
+.replybot-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e1e8ed;
+  border-top: 2px solid #1da1f2;
+  border-radius: 50%;
+  animation: replybot-spin 1s linear infinite;
+}
+
+@keyframes replybot-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Notification Styles */
+.replybot-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  z-index: 10001;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 300px;
+}
+
+.replybot-notification-show {
+  transform: translateX(0);
+}
+
+.replybot-notification-success {
+  background-color: #17bf63;
+}
+
+.replybot-notification-error {
+  background-color: #e0245e;
+}
+
+.replybot-notification-info {
+  background-color: #1da1f2;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .replybot-modal-content {
+    background: #15202b;
+    border: 1px solid #38444d;
+  }
+  
+  .replybot-modal-header {
+    border-bottom-color: #38444d;
+  }
+  
+  .replybot-modal-header h3 {
+    color: #ffffff;
+  }
+  
+  .replybot-close-btn {
+    color: #8899a6;
+  }
+  
+  .replybot-close-btn:hover {
+    background-color: #1c2938;
+    color: #ffffff;
+  }
+  
+  .replybot-tweet-preview {
+    background-color: #1c2938;
+  }
+  
+  .replybot-tweet-preview strong,
+  .replybot-tweet-text {
+    color: #ffffff;
+  }
+  
+  .replybot-insights-section label {
+    color: #ffffff;
+  }
+  
+  #replybot-insights {
+    background-color: #15202b;
+    border-color: #38444d;
+    color: #ffffff;
+  }
+  
+  #replybot-insights:focus {
+    border-color: #1da1f2;
+  }
+  
+  .replybot-btn-secondary {
+    background-color: #15202b;
+    color: #ffffff;
+    border-color: #38444d;
+  }
+  
+  .replybot-btn-secondary:hover:not(:disabled) {
+    background-color: #1c2938;
+  }
+  
+  .replybot-loading {
+    background-color: #1c2938;
+    color: #8899a6;
+  }
+}

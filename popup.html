@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Reply Bot</title>
+    <style>
+        body {
+            width: 320px;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1da1f2, #1991db);
+            color: white;
+        }
+        
+        .header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+            margin: 4px 0 0 0;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .status-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .status-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+        
+        .status-good {
+            background-color: #17bf63;
+        }
+        
+        .status-bad {
+            background-color: #e0245e;
+        }
+        
+        .shortcut-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .shortcut-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .shortcut-key {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .instructions {
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #1da1f2;
+        }
+        
+        .btn-secondary:hover {
+            background: #f0f0f0;
+        }
+        
+        .current-site {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🐦</div>
+        <h1 class="title">Reply Bot</h1>
+        <p class="subtitle">AI-powered Twitter replies</p>
+    </div>
+    
+    <div class="content">
+        <div class="status-section">
+            <div class="status-item">
+                <span>API Key</span>
+                <div class="status-indicator" id="api-status"></div>
+            </div>
+            <div class="status-item">
+                <span>Personality</span>
+                <div class="status-indicator" id="personality-status"></div>
+            </div>
+            <div class="status-item">
+                <span>Current Site</span>
+                <div class="status-indicator" id="site-status"></div>
+            </div>
+        </div>
+        
+        <div class="shortcut-info">
+            <div class="shortcut-title">Quick Start</div>
+            <div class="shortcut-key" id="shortcut-display">Ctrl+Shift+R</div>
+            <div class="instructions">
+                Navigate to a tweet and press the shortcut to generate a personalized reply with optional insights.
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button class="btn btn-primary" id="test-btn">
+                ⚡ Test
+            </button>
+            <a href="options.html" target="_blank" class="btn btn-secondary">
+                ⚙️ Settings
+            </a>
+        </div>
+        
+        <div class="current-site" id="current-site">
+            Not on Twitter/X.com
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

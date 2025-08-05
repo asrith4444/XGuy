@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Reply Bot",
+  "version": "1.0",
+  "description": "Generate personalized replies to Twitter posts using GPT-4.1-nano",
+  
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://api.openai.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["content.js"],
+      "css": ["modal.css"]
+    }
+  ],
+  
+  "commands": {
+    "trigger-reply": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+R",
+        "mac": "Command+Shift+R"
+      },
+      "description": "Generate reply for selected tweet"
+    }
+  },
+  
+  "options_page": "options.html",
+  
+  "icons": {
+    "16": "XGuy.png",
+    "32": "XGuy.png", 
+    "48": "XGuy.png",
+    "128": "XGuy.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Twitter Reply Bot",
+    "default_icon": {
+      "16": "XGuy.png",
+      "32": "XGuy.png",
+      "48": "XGuy.png", 
+      "128": "XGuy.png"
+    }
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["modal.html"],
+      "matches": ["https://x.com/*", "https://twitter.com/*"]
+    }
+  ]
+}
