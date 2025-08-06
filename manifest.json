@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Twitter Reply Bot",
-  "version": "1.0",
-  "description": "Generate personalized replies to Twitter posts using GPT-4.1-nano",
+  "name": "XGuy",
+  "version": "2.0",
+  "description": "Generate personalized replies to X posts using GPT-4.1-nano",
   
   "permissions": [
     "storage",
@@ -30,10 +30,15 @@
   "commands": {
     "trigger-reply": {
       "suggested_key": {
-        "default": "Ctrl+Shift+R",
-        "mac": "Command+Shift+R"
+        "default": "Ctrl+Shift+R"
       },
       "description": "Generate reply for selected tweet"
+    },
+    "suggest-post": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Suggest new post based on stored interactions"
     }
   },
   
@@ -48,7 +53,7 @@
 
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Twitter Reply Bot",
+    "default_title": "XGuy",
     "default_icon": {
       "16": "XGuy.png",
       "32": "XGuy.png",

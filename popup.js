@@ -1,10 +1,9 @@
 // Popup script for Twitter Reply Bot
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Check if we're on Mac for keyboard shortcut display
-  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+  // Display keyboard shortcut (Ctrl only to avoid conflicts)
   const shortcutDisplay = document.getElementById('shortcut-display');
-  shortcutDisplay.textContent = isMac ? 'Cmd+Shift+R' : 'Ctrl+Shift+R';
+  shortcutDisplay.textContent = 'Ctrl+Shift+R';
 
   // Load and display status
   await updateStatus();

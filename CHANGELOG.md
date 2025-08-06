@@ -1,9 +1,78 @@
 # Changelog
 
-All notable changes to the X.com Reply Bot extension will be documented in this file.
+All notable changes to XGuy will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.0.0] - 2025-01-06
+
+### 🎉 Major Release: XGuy Rebrand & Post Suggestions
+
+#### Added
+- **✨ Post Suggestion Feature**: AI-powered original post suggestions based on user engagement patterns
+  - New keyboard shortcut `Ctrl+Shift+S` (or `Cmd+Shift+S` on Mac)
+  - Analyzes stored interactions to understand user interests and style
+  - Generates personalized post ideas aligned with engagement themes
+  - Shows recent interaction history in suggestion modal
+  - Copy-to-clipboard functionality for generated suggestions
+
+- **📊 Smart Engagement Analysis**: 
+  - Pattern recognition for themes (technology, business, AI, productivity, etc.)
+  - User style analysis (question frequency, technical content ratio, avg words)
+  - Interest extraction from user insights and interaction patterns
+  - Comprehensive post analysis for better suggestions
+
+- **🧠 Intelligent Post Storage System**:
+  - Automatic storage of all post interactions (original post, insights, generated reply)
+  - 24-hour auto-expiration for privacy
+  - Local browser storage (Chrome storage API)
+  - Maximum 50 recent interactions kept for performance
+
+#### Changed
+- **🎨 Complete UI Redesign**: Modern X-inspired black and white theme
+  - Rebranded from "Twitter Reply Bot" to **"XGuy"**
+  - Sleek black (#000000) backgrounds with white (#ffffff) accents
+  - X-style rounded buttons and modern typography
+  - Updated extension icon to stylish **𝕏** symbol
+  - Improved popup design (340px width, better spacing)
+  - Redesigned settings page with dark cards and better UX
+  - Enhanced modal interfaces with X-blue highlights (#1d9bf0)
+
+- **🧵 Improved Thread Detection**: Much more accurate thread identification
+  - Only detects real threads with explicit markers ("1/5", "2/5", 🧵)
+  - Identifies conversation threads with "Replying to @username" context
+  - No longer incorrectly groups random comments by same author
+  - Better handling of thread vs single post detection
+
+- **⚡ Enhanced User Experience**:
+  - Updated all UI text from Twitter → X terminology
+  - Improved notification system with X-style colors
+  - Better error handling and user feedback
+  - More intuitive modal layouts and interactions
+
+#### Technical Improvements
+- **🔧 Extended API Integration**:
+  - Post suggestions use 45-second timeout for complex analysis
+  - Enhanced prompting system for personality-based content generation
+  - Improved thread context processing
+  - Better error handling and timeout management
+
+- **📱 Modern Design System**:
+  - X-inspired color palette throughout
+  - Consistent rounded button styles (50px border-radius)
+  - Better typography with TwitterChirp font integration
+  - Improved spacing and visual hierarchy
+  - Enhanced focus states and hover effects
+
+#### Fixed
+- Thread detection no longer collects unrelated comments from same author
+- Better post text extraction with improved selectors
+- More reliable clipboard integration
+- Enhanced modal closing behavior
+- Improved extension context handling
+
+---
 
 ## [1.0.0] - 2025-01-05
 

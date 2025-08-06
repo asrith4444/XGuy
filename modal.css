@@ -1,4 +1,4 @@
-/* Twitter Reply Bot Modal Styles */
+/* XGuy Modal Styles - X Inspired Theme */
 
 .replybot-modal {
   position: fixed;
@@ -6,21 +6,22 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "TwitterChirp", Roboto, sans-serif;
 }
 
 .replybot-modal-content {
-  background: white;
+  background: #000000;
+  border: 1px solid #2f3336;
   border-radius: 16px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  max-width: 500px;
-  width: 90%;
-  max-height: 80vh;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  max-width: 520px;
+  width: 95%;
+  max-height: 85vh;
   overflow-y: auto;
   position: relative;
 }
@@ -29,115 +30,120 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px 16px;
-  border-bottom: 1px solid #e1e8ed;
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid #2f3336;
 }
 
 .replybot-modal-header h3 {
   margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-  color: #14171a;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.3px;
 }
 
 .replybot-close-btn {
   background: none;
   border: none;
-  font-size: 24px;
-  color: #657786;
+  font-size: 28px;
+  color: #71767b;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
   line-height: 1;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 }
 
 .replybot-close-btn:hover {
-  background-color: #f7f9fa;
-  color: #14171a;
+  background-color: #16181c;
+  color: #ffffff;
 }
 
 .replybot-modal-body {
-  padding: 16px 24px 24px;
+  padding: 20px 28px 28px;
 }
 
 .replybot-tweet-preview {
-  margin-bottom: 20px;
-  padding: 16px;
-  background-color: #f7f9fa;
+  margin-bottom: 24px;
+  padding: 20px;
+  background-color: #16181c;
   border-radius: 12px;
-  border-left: 4px solid #1da1f2;
+  border-left: 4px solid #1d9bf0;
+  border: 1px solid #2f3336;
 }
 
 .replybot-tweet-preview strong {
-  color: #14171a;
+  color: #ffffff;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   display: block;
+  font-size: 16px;
 }
 
 .replybot-tweet-text {
   margin: 0;
-  color: #14171a;
-  line-height: 1.4;
+  color: #ffffff;
+  line-height: 1.5;
   font-size: 15px;
 }
 
 .replybot-insights-section {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .replybot-insights-section label {
   display: block;
   font-weight: 700;
-  color: #14171a;
-  margin-bottom: 8px;
-  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 16px;
 }
 
 #replybot-insights {
   width: 100%;
-  padding: 12px;
-  border: 2px solid #e1e8ed;
-  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #2f3336;
+  border-radius: 12px;
   font-size: 15px;
   font-family: inherit;
   resize: vertical;
-  min-height: 80px;
-  transition: border-color 0.2s;
+  min-height: 90px;
+  transition: all 0.2s;
   box-sizing: border-box;
+  background: #000000;
+  color: #ffffff;
 }
 
 #replybot-insights:focus {
   outline: none;
-  border-color: #1da1f2;
-  box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.1);
+  border-color: #1d9bf0;
+  box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.2);
 }
 
 #replybot-insights::placeholder {
-  color: #657786;
+  color: #71767b;
 }
 
 .replybot-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 16px;
 }
 
 .replybot-btn {
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 12px 24px;
+  border-radius: 50px;
   font-size: 15px;
   font-weight: 700;
   border: none;
   cursor: pointer;
   transition: all 0.2s;
-  min-width: 80px;
+  min-width: 100px;
 }
 
 .replybot-btn:disabled {
@@ -146,42 +152,43 @@
 }
 
 .replybot-btn-secondary {
-  background-color: white;
-  color: #14171a;
-  border: 1px solid #e1e8ed;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #2f3336;
 }
 
 .replybot-btn-secondary:hover:not(:disabled) {
-  background-color: #f7f9fa;
+  background-color: #16181c;
 }
 
 .replybot-btn-primary {
-  background-color: #1da1f2;
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .replybot-btn-primary:hover:not(:disabled) {
-  background-color: #1a91da;
+  background-color: #e7e7e8;
 }
 
 .replybot-loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
-  padding: 16px;
-  background-color: #f7f9fa;
-  border-radius: 8px;
-  color: #657786;
-  font-size: 14px;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #16181c;
+  border-radius: 12px;
+  color: #71767b;
+  font-size: 15px;
+  border: 1px solid #2f3336;
 }
 
 .replybot-spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #e1e8ed;
-  border-top: 2px solid #1da1f2;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #2f3336;
+  border-top: 2px solid #1d9bf0;
   border-radius: 50%;
   animation: replybot-spin 1s linear infinite;
 }
@@ -194,18 +201,19 @@
 /* Notification Styles */
 .replybot-notification {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: white;
-  font-weight: 500;
-  font-size: 14px;
+  top: 24px;
+  right: 24px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
   z-index: 10001;
   transform: translateX(400px);
   transition: transform 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-width: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  max-width: 360px;
+  border: 1px solid;
 }
 
 .replybot-notification-show {
@@ -213,76 +221,149 @@
 }
 
 .replybot-notification-success {
-  background-color: #17bf63;
+  background-color: #003d2b;
+  border-color: #00754a;
+  color: #00ba7c;
 }
 
 .replybot-notification-error {
-  background-color: #e0245e;
+  background-color: #2a0a0e;
+  border-color: #5d1a1d;
+  color: #f4212e;
 }
 
 .replybot-notification-info {
-  background-color: #1da1f2;
+  background-color: #0a1929;
+  border-color: #1d3a5f;
+  color: #1d9bf0;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .replybot-modal-content {
-    background: #15202b;
-    border: 1px solid #38444d;
-  }
-  
-  .replybot-modal-header {
-    border-bottom-color: #38444d;
-  }
-  
-  .replybot-modal-header h3 {
-    color: #ffffff;
-  }
-  
-  .replybot-close-btn {
-    color: #8899a6;
-  }
-  
-  .replybot-close-btn:hover {
-    background-color: #1c2938;
-    color: #ffffff;
-  }
-  
-  .replybot-tweet-preview {
-    background-color: #1c2938;
-  }
-  
-  .replybot-tweet-preview strong,
-  .replybot-tweet-text {
-    color: #ffffff;
-  }
-  
-  .replybot-insights-section label {
-    color: #ffffff;
-  }
-  
-  #replybot-insights {
-    background-color: #15202b;
-    border-color: #38444d;
-    color: #ffffff;
-  }
-  
-  #replybot-insights:focus {
-    border-color: #1da1f2;
-  }
-  
-  .replybot-btn-secondary {
-    background-color: #15202b;
-    color: #ffffff;
-    border-color: #38444d;
-  }
-  
-  .replybot-btn-secondary:hover:not(:disabled) {
-    background-color: #1c2938;
-  }
-  
-  .replybot-loading {
-    background-color: #1c2938;
-    color: #8899a6;
-  }
+/* Suggest Post Modal Styles */
+.replybot-suggest-modal .replybot-modal-content {
+  max-width: 640px;
 }
+
+.replybot-suggest-content {
+  padding: 20px 28px 28px;
+}
+
+.replybot-suggest-intro {
+  margin-bottom: 24px;
+  color: #71767b;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.replybot-stored-posts {
+  margin-bottom: 28px;
+}
+
+.replybot-stored-posts h4 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.replybot-posts-list {
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #2f3336;
+  border-radius: 12px;
+  background: #16181c;
+}
+
+.replybot-post-item {
+  padding: 16px;
+  border-bottom: 1px solid #2f3336;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.replybot-post-item:last-child {
+  border-bottom: none;
+}
+
+.replybot-post-item:hover {
+  background-color: #1a1d23;
+}
+
+.replybot-post-timestamp {
+  font-size: 13px;
+  color: #71767b;
+  margin-top: 6px;
+}
+
+.replybot-generated-post {
+  margin-bottom: 24px;
+}
+
+.replybot-generated-post label {
+  display: block;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.replybot-generated-text {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #2f3336;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 140px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  background-color: #16181c;
+  color: #ffffff;
+}
+
+.replybot-generated-text:focus {
+  outline: none;
+  border-color: #1d9bf0;
+  box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.2);
+  background-color: #000000;
+}
+
+.replybot-generated-text::placeholder {
+  color: #71767b;
+}
+
+.replybot-post-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.replybot-post-actions .replybot-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.replybot-copy-btn {
+  background-color: #00ba7c;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.replybot-copy-btn:hover:not(:disabled) {
+  background-color: #00a16a;
+}
+
+.replybot-copy-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* XGuy Extension - Modern X-Inspired Dark Theme
+   Uses X's current color palette for consistent experience */

@@ -3,130 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter Reply Bot - Settings</title>
+    <title>XGuy - Settings</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            max-width: 600px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'TwitterChirp', Roboto, sans-serif;
+            max-width: 680px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0;
             line-height: 1.6;
-            background-color: #f5f5f5;
+            background-color: #000000;
+            color: #ffffff;
         }
         
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: #000000;
+            padding: 40px;
+            min-height: 100vh;
         }
         
         h1 {
-            color: #1da1f2;
-            margin-bottom: 30px;
+            color: #ffffff;
+            margin-bottom: 40px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
         }
         
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            background: #16181c;
+            border: 1px solid #2f3336;
+            border-radius: 16px;
+            padding: 24px;
         }
         
         .section h2 {
-            color: #14171a;
-            margin-bottom: 15px;
-            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             font-weight: 600;
-            color: #14171a;
+            color: #ffffff;
+            font-size: 15px;
         }
         
         input[type="password"],
         textarea,
         select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e1e8ed;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: border-color 0.2s;
+            padding: 16px;
+            border: 1px solid #2f3336;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.2s;
             box-sizing: border-box;
+            background: #000000;
+            color: #ffffff;
         }
         
         input[type="password"]:focus,
         textarea:focus,
         select:focus {
             outline: none;
-            border-color: #1da1f2;
+            border-color: #1d9bf0;
+            box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.2);
         }
         
         textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
+        }
+        
+        input[type="password"]::placeholder,
+        textarea::placeholder {
+            color: #71767b;
         }
         
         .help-text {
-            font-size: 12px;
-            color: #657786;
-            margin-top: 5px;
+            font-size: 13px;
+            color: #71767b;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        
+        .help-text a {
+            color: #1d9bf0;
+            text-decoration: none;
+        }
+        
+        .help-text a:hover {
+            text-decoration: underline;
         }
         
         .save-btn {
-            background-color: #1da1f2;
-            color: white;
-            padding: 12px 24px;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 16px 32px;
             border: none;
-            border-radius: 6px;
+            border-radius: 50px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.2s;
+            margin-top: 20px;
         }
         
         .save-btn:hover {
-            background-color: #1a91da;
+            background-color: #e7e7e8;
         }
         
         .save-btn:disabled {
-            background-color: #aab8c2;
+            background-color: #2f3336;
+            color: #71767b;
             cursor: not-allowed;
         }
         
         .status-message {
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 15px;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 20px;
             display: none;
+            font-weight: 500;
         }
         
         .status-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color: #003d2b;
+            color: #00ba7c;
+            border: 1px solid #00754a;
         }
         
         .status-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background-color: #2a0a0e;
+            color: #f4212e;
+            border: 1px solid #5d1a1d;
         }
         
         .personality-examples {
-            background-color: #f7f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 10px;
+            background-color: #0a0a0a;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 16px;
+            border: 1px solid #2f3336;
         }
         
         .personality-examples h4 {
-            margin: 0 0 10px 0;
-            color: #14171a;
-            font-size: 14px;
+            margin: 0 0 16px 0;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
         }
         
         .personality-examples ul {
@@ -135,27 +167,44 @@
         }
         
         .personality-examples li {
-            font-size: 13px;
-            color: #657786;
-            margin-bottom: 5px;
+            font-size: 14px;
+            color: #71767b;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .personality-examples li strong {
+            color: #ffffff;
         }
         
         .shortcut-info {
-            background-color: #e8f5fd;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #1da1f2;
+            background-color: #0a0a0a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #2f3336;
+            border-left: 4px solid #1d9bf0;
         }
         
         .shortcut-info strong {
-            color: #1da1f2;
+            color: #1d9bf0;
+        }
+        
+        .shortcut-info ol {
+            color: #71767b;
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .shortcut-info ol li {
+            margin-bottom: 6px;
+            line-height: 1.4;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>
-            🐦 Twitter Reply Bot Settings
+            𝕏 XGuy Settings
         </h1>
         
         <div class="section">
@@ -188,15 +237,17 @@
         <div class="section">
             <h2>⌨️ Usage</h2>
             <div class="shortcut-info">
-                <strong>Keyboard Shortcut:</strong> Ctrl+Shift+R (Windows/Linux) or Cmd+Shift+R (Mac)
+                <strong>Keyboard Shortcuts:</strong><br>
+                • Generate Replies: Ctrl+Shift+R<br>
+                • Suggest Posts: Ctrl+Shift+S
                 <br><br>
                 <strong>How to use:</strong>
                 <ol>
-                    <li>Navigate to any tweet on X.com/Twitter</li>
-                    <li>Hover over or click the tweet you want to reply to</li>
-                    <li>Press the keyboard shortcut</li>
+                    <li>Navigate to any post on X.com</li>
+                    <li>Hover over or click the post you want to reply to</li>
+                    <li>Press Ctrl+Shift+R for replies or Ctrl+Shift+S for suggestions</li>
                     <li>Optionally add insights about the post</li>
-                    <li>Click "Generate Reply" and the response will be inserted</li>
+                    <li>Click "Generate" and the response will be ready to copy</li>
                 </ol>
             </div>
         </div>
