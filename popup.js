@@ -1,4 +1,4 @@
-// Popup script for Twitter Reply Bot
+// Popup script for 𝕏 Reply Bot
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Display keyboard shortcut (Ctrl only to avoid conflicts)
@@ -50,10 +50,10 @@ async function checkCurrentSite() {
     
     if (tab && (tab.url.includes('x.com') || tab.url.includes('twitter.com'))) {
       siteStatus.className = 'status-indicator status-good';
-      currentSite.textContent = 'Ready on ' + (tab.url.includes('x.com') ? 'X.com' : 'Twitter.com');
+      currentSite.textContent = 'Ready on ' + (tab.url.includes('x.com') ? '𝕏.com' : 'Twitter.com');
     } else {
       siteStatus.className = 'status-indicator status-bad';
-      currentSite.textContent = tab ? 'Not on Twitter/X.com' : 'No active tab';
+      currentSite.textContent = tab ? 'Not on Twitter/𝕏.com' : 'No active tab';
     }
   } catch (error) {
     console.error('Error checking current site:', error);
@@ -74,7 +74,7 @@ async function testExtension() {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     
     if (!tab || (!tab.url.includes('x.com') && !tab.url.includes('twitter.com'))) {
-      throw new Error('Please navigate to X.com or Twitter.com first');
+      throw new Error('Please navigate to 𝕏.com or Twitter.com first');
     }
 
     // Check configuration

@@ -1,4 +1,4 @@
-// Content script for Twitter Reply Bot
+// Content script for 𝕏 Reply Bot
 // Handles DOM interaction on X.com/Twitter and modal display
 
 let currentTweetElement = null;
@@ -338,6 +338,12 @@ function generateReply(tweetText, threadContext) {
   
   const userInsights = insightsInput.value.trim();
   
+  debugLogger.info('Starting reply generation', { 
+    tweetText, 
+    threadContext: threadContext ? threadContext.length : 0, 
+    userInsights 
+  });
+  
   // Show loading state
   loadingDiv.style.display = 'flex';
   generateBtn.disabled = true;
@@ -352,18 +358,21 @@ function generateReply(tweetText, threadContext) {
       userInsights: userInsights
     }
   }, (response) => {
+    debugLogger.info('Received response from background script', { response });
     // Hide loading state
     loadingDiv.style.display = 'none';
     generateBtn.disabled = false;
     generateBtn.textContent = 'Generate Reply';
 
     if (response.success) {
+      debugLogger.info('Received successful response from background script', { reply: response.reply });
       insertReplyIntoTwitter(response.reply);
       closeModal();
       // Store the post interaction for future analysis
       storePostInteraction(tweetText, threadContext, userInsights, response.reply);
       // Don't show additional success message here - insertReplyIntoTwitter handles it
     } else {
+      debugLogger.error('Received error response from background script', { error: response.error });
       showNotification(`Error: ${response.error}`, 'error');
     }
   });
@@ -388,19 +397,26 @@ function insertReplyIntoTwitter(replyText) {
 }
 
 function insertTextIntoReplyComposer(replyText) {
+  debugLogger.info('Attempting to copy reply to clipboard', { replyText });
+  
   // Always copy to clipboard - most reliable approach
   navigator.clipboard.writeText(replyText).then(() => {
+    debugLogger.info('Successfully copied reply to clipboard', { replyText });
     showNotification('✅ Reply copied to clipboard! Paste it with Ctrl+V (or Cmd+V)', 'success', 6000);
     
     // Also try to open reply box for user convenience
     const replyButton = currentTweetElement.querySelector('[data-testid="reply"]');
     if (replyButton) {
+      debugLogger.info('Opening reply box for user convenience');
       setTimeout(() => {
         replyButton.click();
         showNotification('💡 Reply box opened - just paste with Ctrl+V!', 'info', 4000);
       }, 500);
+    } else {
+      debugLogger.warn('Could not find reply button to open reply box');
     }
-  }).catch(() => {
+  }).catch((error) => {
+    debugLogger.error('Failed to copy to clipboard', { error: error.message, replyText });
     showNotification('❌ Could not copy to clipboard', 'error');
   });
 }
@@ -574,15 +590,20 @@ function showSuggestPostModal(storedPosts) {
   copyBtn.addEventListener('click', () => {
     const text = textArea.value;
     if (text) {
+      debugLogger.info('Attempting to copy suggested post to clipboard', { text });
       navigator.clipboard.writeText(text).then(() => {
+        debugLogger.info('Successfully copied suggested post to clipboard', { text });
         showNotification('✅ Post copied to clipboard!', 'success');
         copyBtn.textContent = '✅ Copied!';
         setTimeout(() => {
           copyBtn.textContent = 'Copy to Clipboard';
         }, 2000);
-      }).catch(() => {
+      }).catch((error) => {
+        debugLogger.error('Failed to copy suggested post to clipboard', { error: error.message, text });
         showNotification('❌ Could not copy to clipboard', 'error');
       });
+    } else {
+      debugLogger.warn('No text to copy - textArea is empty');
     }
   });
   
@@ -620,11 +641,13 @@ function generateSuggestedPost(storedPosts) {
     generateBtn.textContent = 'Generate Another';
 
     if (response.success) {
+      debugLogger.info('Received successful post suggestion from background script', { suggestedPost: response.suggestedPost });
       textArea.value = response.suggestedPost;
       textArea.readOnly = false;
       copyBtn.disabled = false;
       showNotification('✨ Post suggestion generated!', 'success');
     } else {
+      debugLogger.error('Received error response for post suggestion', { error: response.error });
       textArea.value = `Error generating suggestion: ${response.error}`;
       showNotification(`Error: ${response.error}`, 'error');
     }
@@ -654,4 +677,22 @@ function formatTimestamp(timestamp) {
 }
 
 // Initialize
-console.log('Twitter Reply Bot content script loaded');
+console.log('𝕏 Reply Bot content script loaded');
+debugLogger.info('𝕏Guy extension content script initialized');
+
+// Add global functions for easy log access
+window.download𝕏GuyLogs = () => {
+  debugLogger.downloadLogs();
+  console.log('Debug logs downloaded. Check your downloads folder.');
+};
+
+window.clear𝕏GuyLogs = () => {
+  debugLogger.clear();
+  console.log('Debug logs cleared.');
+
+};
+
+// Log initial setup
+console.log('🔧 Debug commands available:');
+console.log('  - download𝕏GuyLogs() - Download debug logs as file');
+console.log('  - clear𝕏GuyLogs() - Clear current debug logs');

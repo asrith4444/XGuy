@@ -1,14 +1,21 @@
-// Options page script for Twitter Reply Bot
+// Options page script for 𝕏 Reply Bot
 
 document.addEventListener('DOMContentLoaded', async () => {
   const apiKeyInput = document.getElementById('api-key');
   const personalityInput = document.getElementById('personality');
+  const gptModelSelect = document.getElementById('gpt-model');
+  const reasoningEffortSelect = document.getElementById('reasoning-effort');
   const saveBtn = document.getElementById('save-btn');
   const statusMessage = document.getElementById('status-message');
 
   // Load saved settings
   try {
-    const result = await chrome.storage.sync.get(['openai_api_key', 'personality']);
+    const result = await chrome.storage.sync.get([
+      'openai_api_key', 
+      'personality', 
+      'gpt_model', 
+      'reasoning_effort'
+    ]);
     
     if (result.openai_api_key) {
       apiKeyInput.value = result.openai_api_key;
@@ -19,6 +26,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
       personalityInput.value = 'friendly and helpful';
     }
+    
+    if (result.gpt_model) {
+      gptModelSelect.value = result.gpt_model;
+    } else {
+      gptModelSelect.value = 'gpt-5-nano'; // Default
+    }
+    
+    if (result.reasoning_effort) {
+      reasoningEffortSelect.value = result.reasoning_effort;
+    } else {
+      reasoningEffortSelect.value = 'high'; // Default
+    }
   } catch (error) {
     console.error('Error loading settings:', error);
     showStatus('Error loading settings', 'error');
@@ -28,6 +47,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   saveBtn.addEventListener('click', async () => {
     const apiKey = apiKeyInput.value.trim();
     const personality = personalityInput.value.trim();
+    const gptModel = gptModelSelect.value;
+    const reasoningEffort = reasoningEffortSelect.value;
 
     // Validate inputs
     if (!apiKey) {
@@ -55,10 +76,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       await chrome.storage.sync.set({
         openai_api_key: apiKey,
-        personality: personality
+        personality: personality,
+        gpt_model: gptModel,
+        reasoning_effort: reasoningEffort
       });
 
-      showStatus('Settings saved successfully!', 'success');
+      showStatus(`Settings saved! Using ${gptModel} with ${reasoningEffort} reasoning effort.`, 'success');
       
       // Test API key validity (optional)
       setTimeout(() => {
@@ -89,6 +112,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       }
     }, 1000);
+  });
+
+  // Auto-save on model/reasoning changes
+  gptModelSelect.addEventListener('change', async () => {
+    try {
+      await chrome.storage.sync.set({ gpt_model: gptModelSelect.value });
+      console.log('GPT model auto-saved:', gptModelSelect.value);
+      showStatus(`Switched to ${gptModelSelect.value}`, 'success');
+    } catch (error) {
+      console.error('Error auto-saving model:', error);
+    }
+  });
+
+  reasoningEffortSelect.addEventListener('change', async () => {
+    try {
+      await chrome.storage.sync.set({ reasoning_effort: reasoningEffortSelect.value });
+      console.log('Reasoning effort auto-saved:', reasoningEffortSelect.value);
+      showStatus(`Reasoning effort set to ${reasoningEffortSelect.value}`, 'success');
+    } catch (error) {
+      console.error('Error auto-saving reasoning effort:', error);
+    }
   });
 });
 
