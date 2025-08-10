@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "𝕏Guy",
-  "version": "3.0.0",
+  "version": "2.2.1",
   "description": "Generate personalized replies to 𝕏 posts using GPT-5-nano",
   
   "permissions": [

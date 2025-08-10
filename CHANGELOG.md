@@ -1,11 +1,58 @@
 # Changelog
 
-All notable changes to XGuy will be documented in this file.
+All notable changes to 𝕏Guy will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - 2025-01-06
+## [2.2.1] - 2025-08-10
+
+### 🚀 GPT-5 Integration & UI Enhancement
+
+#### Added
+- **🤖 GPT-5-nano Integration**: Upgraded from GPT-4.1-nano to GPT-5-nano for improved response quality
+  - Enhanced reasoning capabilities with configurable reasoning effort (low/medium/high)
+  - Better prompt understanding and context awareness
+  - Improved handling of user insights and thread context
+
+- **⚙️ Model Configuration Options**: New user-configurable settings
+  - GPT-5 model selection dropdown (GPT-5, GPT-5 Mini, GPT-5 Nano)
+  - Reasoning effort control (Low/Medium/High) for speed vs quality balance
+  - Auto-save functionality for immediate setting changes
+  - Visual feedback on setting changes
+
+- **🔧 Enhanced Debug System**: Comprehensive logging for troubleshooting
+  - File-based debug logging with downloadable logs
+  - Structured logging throughout API calls and clipboard operations
+  - Console commands: `download𝕏GuyLogs()` and `clear𝕏GuyLogs()`
+
+#### Changed
+- **🎨 Complete 𝕏 Rebrand**: Updated all UI elements to use 𝕏 instead of X
+  - Extension name: XGuy → 𝕏Guy
+  - All UI text, popups, and documentation now use 𝕏 branding
+  - Consistent 𝕏 symbol throughout the interface
+  - Updated URLs and references to use 𝕏.com
+
+- **📝 Improved System Prompts**: Better AI instruction formatting
+  - Clear separation between original post and user insights
+  - Better formatting with bullet points and line breaks for readability
+  - Enhanced persona instructions for more consistent responses
+
+#### Fixed
+- **🔍 User Insights Bug**: Fixed critical issue where AI was replying TO user insights instead of incorporating them
+  - Clear prompt structure distinguishing between content to reply to vs. user perspective
+  - Explicit instructions that insights are the AI's viewpoint to express
+  - Better context separation in prompts to prevent confusion
+
+#### Technical Improvements
+- Updated API calls to use GPT-5 chat completions endpoint
+- Enhanced error handling for new GPT-5 parameter validation
+- Improved settings storage and retrieval system
+- Better debugging capabilities with structured logging
+
+---
+
+## [2.0.0] - 2025-08-07
 
 ### 🎉 Major Release: XGuy Rebrand & Post Suggestions
 
